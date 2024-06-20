@@ -1,4 +1,5 @@
 export const typeDefs = `#graphql
+  # Define the schema with the types and fields
   type Game {
     id: ID!
     title: String!
@@ -19,6 +20,7 @@ export const typeDefs = `#graphql
     reviews: [Review]
   }
 
+  # Define the input types for mutations
   input AddGameInput {
     title: String!
     platform: [String!]!
@@ -28,6 +30,7 @@ export const typeDefs = `#graphql
     platform: [String!]
   }
 
+  # Define the queries 
   type Query {
     authors: [Author]
     author(id: ID!): Author
@@ -37,6 +40,7 @@ export const typeDefs = `#graphql
     review(id: ID!): Review
   }
 
+  # Define the mutations
   type Mutation {
     deleteGame(id: ID!): Game
     addGame(game: AddGameInput!): Game

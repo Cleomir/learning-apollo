@@ -1,6 +1,7 @@
 import { authors, games, reviews } from "../db";
 
 export const resolvers = {
+  // Define the resolvers for the queries and mutations
   Query: {
     games: () => games,
     game: (_: any, args: any) => {
@@ -50,6 +51,7 @@ export const resolvers = {
       return games[gameIndex];
     },
   },
+  // Define the resolvers for the relationships between the types
   Game: {
     reviews: (parent: any) => {
       return reviews.filter((review) => review.game_id === parent.id);
