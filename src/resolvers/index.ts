@@ -36,6 +36,19 @@ export const resolvers = {
 
       return newGame;
     },
+    updateGame: (_: any, args: any) => {
+      const gameIndex = games.findIndex((game) => game.id === args.id);
+      if (gameIndex === -1) {
+        throw new Error("Game not found");
+      }
+
+      games[gameIndex] = {
+        ...games[gameIndex],
+        ...args.game,
+      };
+
+      return games[gameIndex];
+    },
   },
   Game: {
     reviews: (parent: any) => {
